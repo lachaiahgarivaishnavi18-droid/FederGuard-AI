@@ -1,0 +1,66 @@
+{
+  "dataset": "three labeled synthetic queries; small smoke benchmark, not general QA evaluation",
+  "queries": [
+    {
+      "question": "suspicious velocity payments",
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_5": 1.0,
+      "citation_reference_validity": true,
+      "gold_source_ids": [
+        "5df3b1f8ab1cc255c98ea790",
+        "f9247d043b0cb9d48c7f09ac"
+      ],
+      "retrieved_source_ids": [
+        "5df3b1f8ab1cc255c98ea790",
+        "f9247d043b0cb9d48c7f09ac",
+        "5743e0fc06f9a6679fea83e7",
+        "309871868c474258ff9afb8d"
+      ]
+    },
+    {
+      "question": "account takeover device risk",
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_5": 1.0,
+      "citation_reference_validity": true,
+      "gold_source_ids": [
+        "d5c3c49d1e81e7ec86ff1e8b",
+        "a98d6d8bcc4ea540fd2d6ea9"
+      ],
+      "retrieved_source_ids": [
+        "a98d6d8bcc4ea540fd2d6ea9",
+        "d5c3c49d1e81e7ec86ff1e8b",
+        "f9247d043b0cb9d48c7f09ac",
+        "5df3b1f8ab1cc255c98ea790"
+      ]
+    },
+    {
+      "question": "card-not-present repeated payments",
+      "precision_at_5": 0.4,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_5": 1.0,
+      "citation_reference_validity": true,
+      "gold_source_ids": [
+        "309871868c474258ff9afb8d",
+        "5743e0fc06f9a6679fea83e7"
+      ],
+      "retrieved_source_ids": [
+        "5743e0fc06f9a6679fea83e7",
+        "309871868c474258ff9afb8d",
+        "f9247d043b0cb9d48c7f09ac",
+        "5df3b1f8ab1cc255c98ea790",
+        "a98d6d8bcc4ea540fd2d6ea9"
+      ]
+    }
+  ],
+  "mean_precision_at_5": 0.4000000000000001,
+  "mean_recall_at_5": 1.0,
+  "mrr": 1.0,
+  "ndcg_at_5": 1.0,
+  "insufficient_evidence_pass": true,
+  "faithfulness": "Demo copies passages; no independent semantic entailment or external-LLM hallucination evaluation performed"
+}

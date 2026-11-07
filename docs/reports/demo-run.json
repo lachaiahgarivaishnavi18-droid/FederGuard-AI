@@ -1,0 +1,287 @@
+{
+  "round": {
+    "id": "baf3a1d852749e15adca7c33",
+    "bank_id": null,
+    "created_at": "2026-11-07T11:05:25.802238+00:00",
+    "status": "completed",
+    "strategy": "FedAvg",
+    "selected": [
+      "bank_a",
+      "bank_b",
+      "bank_c"
+    ],
+    "clients": [
+      {
+        "bank_id": "bank_a",
+        "status": "completed",
+        "error": null,
+        "round_id": "baf3a1d852749e15adca7c33",
+        "version": 2,
+        "weight": 1,
+        "duration": 14.638450500000545,
+        "epsilon": 18.706375309409168,
+        "delta": 1e-05,
+        "dp_enabled": true,
+        "mechanism": "full-batch clipped Gaussian gradients; Opacus RDP; add/remove adjacency; fixed public cohort size",
+        "synthetic": true
+      },
+      {
+        "bank_id": "bank_b",
+        "status": "completed",
+        "error": null,
+        "round_id": "baf3a1d852749e15adca7c33",
+        "version": 2,
+        "weight": 1,
+        "duration": 13.414115100000345,
+        "epsilon": 18.706375309409168,
+        "delta": 1e-05,
+        "dp_enabled": true,
+        "mechanism": "full-batch clipped Gaussian gradients; Opacus RDP; add/remove adjacency; fixed public cohort size",
+        "synthetic": true
+      },
+      {
+        "bank_id": "bank_c",
+        "status": "completed",
+        "error": null,
+        "round_id": "baf3a1d852749e15adca7c33",
+        "version": 2,
+        "weight": 1,
+        "duration": 14.40554129999964,
+        "epsilon": 10.99641624230005,
+        "delta": 1e-05,
+        "dp_enabled": true,
+        "mechanism": "full-batch clipped Gaussian gradients; Opacus RDP; add/remove adjacency; fixed public cohort size",
+        "synthetic": true
+      }
+    ],
+    "synthetic": true,
+    "successful": 3,
+    "failed": 0,
+    "duration": 14.729271100000005,
+    "completed_at": "2026-11-07T11:05:40.554231+00:00",
+    "version": 3,
+    "metrics": {
+      "accuracy": 0.9123333333333333,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.6272236122089769,
+      "pr_auc": 0.13412691120982223,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 1.0,
+      "confusion_matrix": [
+        [
+          2737,
+          0
+        ],
+        [
+          263,
+          0
+        ]
+      ],
+      "brier_score": 0.16444110634897094
+    },
+    "aggregation_duration": 0.9593559000004461
+  },
+  "alert": {
+    "id": "176516e8b23ad4bb5eae3e8d",
+    "bank_id": "bank_a",
+    "created_at": "2026-11-07T11:05:42.069674+00:00",
+    "transaction_reference": "SYN-8916318eca",
+    "risk_score": 0.26903900801351194,
+    "category": "Velocity",
+    "contributions": {
+      "amount": -0.08974826790156805,
+      "velocity": -0.0016005611693470734,
+      "device_risk": 0.032595140740063144,
+      "geo_deviation": 0.01521499789665655,
+      "account_age": -0.42521225430904014,
+      "hour": 0.0193376804094271
+    },
+    "explanation": "additive log-odds; not causal; synthetic calibration only",
+    "model_version": "local-from-global-v2",
+    "review_status": "NEW",
+    "synthetic": true
+  },
+  "assistant": {
+    "id": "2ad89d9b54b439de223961a8",
+    "bank_id": "bank_a",
+    "created_at": "2026-11-07T11:05:42.101518+00:00",
+    "question": "What patterns are associated with suspicious transaction velocity? What corroboration should an analyst seek?",
+    "answer": "Local evidence summary (extractive demo):\n\nSuspicious transaction velocity can be associated with repeated payments in a short time window. Analysts should compare velocity against local account baselines and check for legitimate batch payments. [1]\n\nSuspicious transaction velocity can be associated with repeated payments in a short time window. Analysts should compare velocity against local account baselines and check for legitimate batch payments. [2]\n\nCard-not-present campaigns may involve repeated small payments followed by a larger payment. This synthetic scenario is an investigative hypothesis and requires local corroboration. [3]\n\nCard-not-present campaigns may involve repeated small payments followed by a larger payment. This synthetic scenario is an investigative hypothesis and requires local corroboration. [4]\n\nAccount takeover indicators include elevated device risk combined with unusual geographic deviation. Device risk alone does not establish fraud. Corroborate locally before escalating. [5]\n\nThese synthetic sources support analyst review only. Associations are not proof of fraud; corroboration is required.",
+    "evidence": [
+      {
+        "chunk_id": "fe5e285cf91a46fc30c1550c",
+        "text": "Suspicious transaction velocity can be associated with repeated payments in a short time window. Analysts should compare velocity against local account baselines and check for legitimate batch payments.",
+        "page": 1,
+        "section": "Velocity",
+        "document_id": "5df3b1f8ab1cc255c98ea790",
+        "title": "Velocity investigation procedure",
+        "version": "1.0",
+        "source_bank": "bank_a",
+        "score": 0.03333333333333333,
+        "citation": "[1]"
+      },
+      {
+        "chunk_id": "f9247d043b0cb9d48c7f09ac-summary",
+        "text": "Suspicious transaction velocity can be associated with repeated payments in a short time window. Analysts should compare velocity against local account baselines and check for legitimate batch payments.",
+        "page": null,
+        "section": "Velocity",
+        "document_id": "f9247d043b0cb9d48c7f09ac",
+        "title": "Velocity monitoring advisory",
+        "version": "1",
+        "source_bank": "bank_a",
+        "score": 0.03278688524590164,
+        "citation": "[2]"
+      },
+      {
+        "chunk_id": "62074a2d1759272b52ec71a9",
+        "text": "Card-not-present campaigns may involve repeated small payments followed by a larger payment. This synthetic scenario is an investigative hypothesis and requires local corroboration.",
+        "page": 1,
+        "section": "Card-not-present",
+        "document_id": "5743e0fc06f9a6679fea83e7",
+        "title": "Card-not-present investigation procedure",
+        "version": "1.0",
+        "source_bank": "bank_c",
+        "score": 0.03225806451612903,
+        "citation": "[3]"
+      },
+      {
+        "chunk_id": "309871868c474258ff9afb8d-summary",
+        "text": "Card-not-present campaigns may involve repeated small payments followed by a larger payment. This synthetic scenario is an investigative hypothesis and requires local corroboration.",
+        "page": null,
+        "section": "Card-not-present",
+        "document_id": "309871868c474258ff9afb8d",
+        "title": "Card-not-present monitoring advisory",
+        "version": "1",
+        "source_bank": "bank_c",
+        "score": 0.031746031746031744,
+        "citation": "[4]"
+      },
+      {
+        "chunk_id": "b3c5eef3b1602b1952ce5fc2",
+        "text": "Account takeover indicators include elevated device risk combined with unusual geographic deviation. Device risk alone does not establish fraud. Corroborate locally before escalating.",
+        "page": 1,
+        "section": "Account takeover",
+        "document_id": "a98d6d8bcc4ea540fd2d6ea9",
+        "title": "Account takeover investigation procedure",
+        "version": "1.0",
+        "source_bank": "bank_b",
+        "score": 0.03125,
+        "citation": "[5]"
+      }
+    ],
+    "retrieval_mode": "BM25 + TF-IDF demo fallback (not neural semantic retrieval)",
+    "provider": "demo",
+    "citation_validation": "references validated; entailment requires human review"
+  },
+  "case": {
+    "id": "dfeaa62f33a65bbce1d7bcba",
+    "bank_id": "bank_a",
+    "created_at": "2026-11-07T11:05:42.129245+00:00",
+    "title": "Demo review: SYN-8916318eca",
+    "alert_id": "176516e8b23ad4bb5eae3e8d",
+    "evidence_refs": [
+      "5df3b1f8ab1cc255c98ea790",
+      "f9247d043b0cb9d48c7f09ac",
+      "5743e0fc06f9a6679fea83e7",
+      "309871868c474258ff9afb8d",
+      "a98d6d8bcc4ea540fd2d6ea9"
+    ],
+    "status": "UNDER_REVIEW",
+    "notes": [
+      {
+        "text": "Automated synthetic demonstration requested by the user. Inputs: amount=1800, velocity=12, device risk=0.8, geographic deviation=0.7, account age=60, hour=2. Risk ranking score=0.2690; model=local-from-global-v2. Contributions are additive log-odds, not causal proof.",
+        "author": "6aec861014b9bccb48e6ecac",
+        "created_at": "2026-11-07T11:05:42.172946+00:00"
+      },
+      {
+        "text": "Authorized evidence attached: [1] Velocity investigation procedure; [2] Velocity monitoring advisory; [3] Card-not-present investigation procedure; [4] Card-not-present monitoring advisory; [5] Account takeover investigation procedure. Compare payment velocity against local behavior and legitimate batch-payment schedules. The extractive demo summary is not an independent fraud determination.",
+        "author": "6aec861014b9bccb48e6ecac",
+        "created_at": "2026-11-07T11:05:42.194546+00:00"
+      },
+      {
+        "text": "Pending human assessment: validate evidence freshness, corroborate permitted local context, and consider benign explanations. No final outcome or customer decision was made.",
+        "author": "6aec861014b9bccb48e6ecac",
+        "created_at": "2026-11-07T11:05:42.214667+00:00"
+      }
+    ],
+    "history": [
+      {
+        "from": "NEW",
+        "to": "UNDER_REVIEW",
+        "reviewer": "6aec861014b9bccb48e6ecac",
+        "created_at": "2026-11-07T11:05:42.151306+00:00"
+      }
+    ],
+    "assigned_to": "6aec861014b9bccb48e6ecac",
+    "synthetic": true
+  },
+  "audit_events": [
+    {
+      "id": "344bfb5c889fb94cce744a58",
+      "bank_id": "bank_a",
+      "created_at": "2026-11-07T11:05:42.216274+00:00",
+      "actor": "6aec861014b9bccb48e6ecac",
+      "action": "case.note",
+      "target": "dfeaa62f33a65bbce1d7bcba"
+    },
+    {
+      "id": "78c9b40091e115e5874ff271",
+      "bank_id": "bank_a",
+      "created_at": "2026-11-07T11:05:42.195936+00:00",
+      "actor": "6aec861014b9bccb48e6ecac",
+      "action": "case.note",
+      "target": "dfeaa62f33a65bbce1d7bcba"
+    },
+    {
+      "id": "7625bf88f25f15ad996db25c",
+      "bank_id": "bank_a",
+      "created_at": "2026-11-07T11:05:42.174179+00:00",
+      "actor": "6aec861014b9bccb48e6ecac",
+      "action": "case.note",
+      "target": "dfeaa62f33a65bbce1d7bcba"
+    },
+    {
+      "id": "3594a09034cfc7f02eb74eea",
+      "bank_id": "bank_a",
+      "created_at": "2026-11-07T11:05:42.153413+00:00",
+      "actor": "6aec861014b9bccb48e6ecac",
+      "action": "case.status",
+      "target": "dfeaa62f33a65bbce1d7bcba"
+    },
+    {
+      "id": "245d3cda6573d10f2079e1e5",
+      "bank_id": "bank_a",
+      "created_at": "2026-11-07T11:05:42.132281+00:00",
+      "actor": "6aec861014b9bccb48e6ecac",
+      "action": "case.create",
+      "target": "dfeaa62f33a65bbce1d7bcba"
+    },
+    {
+      "id": "8c3da3ab6ead80effa084c7a",
+      "bank_id": "bank_a",
+      "created_at": "2026-11-07T11:05:42.105912+00:00",
+      "actor": "6aec861014b9bccb48e6ecac",
+      "action": "rag.query",
+      "target": "2ad89d9b54b439de223961a8"
+    },
+    {
+      "id": "0acdfa9f3b857e7e7be54ad4",
+      "bank_id": "bank_a",
+      "created_at": "2026-11-07T11:05:42.076204+00:00",
+      "actor": "6aec861014b9bccb48e6ecac",
+      "action": "fraud.detect",
+      "target": "176516e8b23ad4bb5eae3e8d"
+    },
+    {
+      "id": "a1a59753e982bb98fe02074b",
+      "bank_id": "bank_a",
+      "created_at": "2026-11-07T11:05:25.804420+00:00",
+      "actor": "6aec861014b9bccb48e6ecac",
+      "action": "round.start",
+      "target": "baf3a1d852749e15adca7c33"
+    }
+  ],
+  "synthetic_only": true
+}

@@ -1,0 +1,64 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: federguard
+      POSTGRES_USER: federguard
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    networks: [central]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U federguard"]
+      interval: 5s
+      retries: 10
+  backend:
+    build: {context: ., dockerfile: backend/Dockerfile}
+    environment:
+      DATABASE_URL: postgresql+psycopg://federguard:${POSTGRES_PASSWORD}@postgres/federguard
+      DEMO: "true"
+      DEMO_PASSWORD: ${DEMO_PASSWORD:?Initialize .env}
+      FRONTEND_ORIGIN: http://localhost:8080
+      BANK_A_ENDPOINT: http://bank_a:8100
+      BANK_B_ENDPOINT: http://bank_b:8100
+      BANK_C_ENDPOINT: http://bank_c:8100
+      BANK_A_CLIENT_KEY: ${BANK_A_CLIENT_KEY}
+      BANK_B_CLIENT_KEY: ${BANK_B_CLIENT_KEY}
+      BANK_C_CLIENT_KEY: ${BANK_C_CLIENT_KEY}
+      LLM_PROVIDER: demo
+    depends_on:
+      postgres: {condition: service_healthy}
+    networks: [central, bank_a_link, bank_b_link, bank_c_link]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      retries: 10
+  bank_a:
+    build: {context: ., dockerfile: bank_clients/Dockerfile}
+    environment: {BANK_ID: bank_a, BANK_CLIENT_KEY: "${BANK_A_CLIENT_KEY}"}
+    volumes: [bank_a_data:/app/local]
+    networks: [bank_a_link]
+  bank_b:
+    build: {context: ., dockerfile: bank_clients/Dockerfile}
+    environment: {BANK_ID: bank_b, BANK_CLIENT_KEY: "${BANK_B_CLIENT_KEY}"}
+    volumes: [bank_b_data:/app/local]
+    networks: [bank_b_link]
+  bank_c:
+    build: {context: ., dockerfile: bank_clients/Dockerfile}
+    environment: {BANK_ID: bank_c, BANK_CLIENT_KEY: "${BANK_C_CLIENT_KEY}"}
+    volumes: [bank_c_data:/app/local]
+    networks: [bank_c_link]
+  frontend:
+    build: {context: ., dockerfile: frontend/Dockerfile}
+    ports: ["127.0.0.1:8080:80"]
+    depends_on: [backend]
+    networks: [central]
+volumes:
+  postgres_data:
+  bank_a_data:
+  bank_b_data:
+  bank_c_data:
+networks:
+  central:
+  bank_a_link: {internal: true}
+  bank_b_link: {internal: true}
+  bank_c_link: {internal: true}

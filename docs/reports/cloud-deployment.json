@@ -1,0 +1,168 @@
+{
+  "origin": "https://federguard-ai.vercel.app",
+  "backend": "https://federguard-api.vercel.app",
+  "synthetic_only": true,
+  "checks": {
+    "login": true,
+    "session_cookie": true,
+    "three_bank_round": true,
+    "local_risk_scoring": true,
+    "cited_retrieval": true,
+    "case_creation_notes_and_review": true,
+    "graph": true,
+    "persistent_privacy_accounting": true
+  },
+  "round": {
+    "id": "dff10b5bee6d4349a5d65ab2",
+    "bank_id": null,
+    "created_at": "2026-11-07T11:56:35.928618+00:00",
+    "status": "completed",
+    "strategy": "FedAvg",
+    "selected": [
+      "bank_a",
+      "bank_b",
+      "bank_c"
+    ],
+    "clients": [
+      {
+        "bank_id": "bank_a",
+        "status": "completed",
+        "error": null,
+        "round_id": "dff10b5bee6d4349a5d65ab2",
+        "version": 0,
+        "weight": 1,
+        "duration": 3.236014145000013,
+        "epsilon": 7.249938307004483,
+        "delta": 1e-05,
+        "dp_enabled": true,
+        "mechanism": "full-batch clipped Gaussian gradients; Google dp-accounting RDP; add/remove adjacency; fixed public cohort size",
+        "synthetic": true
+      },
+      {
+        "bank_id": "bank_b",
+        "status": "completed",
+        "error": null,
+        "round_id": "dff10b5bee6d4349a5d65ab2",
+        "version": 0,
+        "weight": 1,
+        "duration": 3.2428295219999654,
+        "epsilon": 7.249938307004483,
+        "delta": 1e-05,
+        "dp_enabled": true,
+        "mechanism": "full-batch clipped Gaussian gradients; Google dp-accounting RDP; add/remove adjacency; fixed public cohort size",
+        "synthetic": true
+      },
+      {
+        "bank_id": "bank_c",
+        "status": "completed",
+        "error": null,
+        "round_id": "dff10b5bee6d4349a5d65ab2",
+        "version": 0,
+        "weight": 1,
+        "duration": 3.248412234,
+        "epsilon": 7.249938307004483,
+        "delta": 1e-05,
+        "dp_enabled": true,
+        "mechanism": "full-batch clipped Gaussian gradients; Google dp-accounting RDP; add/remove adjacency; fixed public cohort size",
+        "synthetic": true
+      }
+    ],
+    "synthetic": true,
+    "successful": 3,
+    "failed": 0,
+    "duration": 5.8114173020000095,
+    "completed_at": "2026-11-07T11:56:43.681316+00:00",
+    "version": 1,
+    "metrics": {
+      "accuracy": 0.9123333333333333,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.6442595553678572,
+      "pr_auc": 0.15043515720287093,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 1.0,
+      "confusion_matrix": [
+        [
+          2737,
+          0
+        ],
+        [
+          263,
+          0
+        ]
+      ],
+      "brier_score": 0.23409625118754226
+    },
+    "aggregation_duration": 0.48873655199997756
+  },
+  "alert": {
+    "id": "a364271d7cea49144b0d12df",
+    "bank_id": "bank_a",
+    "created_at": "2026-11-07T11:56:50.420026+00:00",
+    "transaction_reference": "SYN-b2cacb9e03",
+    "risk_score": 0.37824748698472516,
+    "category": "Velocity",
+    "contributions": {
+      "amount": -0.03522123679675755,
+      "velocity": -0.00027078331610199335,
+      "device_risk": -0.009333207754180011,
+      "geo_deviation": -0.015309134386805683,
+      "account_age": -0.1855058181593499,
+      "hour": -0.01988552469919889
+    },
+    "explanation": "additive log-odds; not causal; synthetic calibration only",
+    "model_version": "local-from-global-v0",
+    "review_status": "NEW",
+    "synthetic": true
+  },
+  "case": {
+    "id": "427f666e372562aa66aa143a",
+    "bank_id": "bank_a",
+    "created_at": "2026-11-07T11:56:57.451070+00:00",
+    "title": "Cloud deployment verification: SYN-b2cacb9e03",
+    "alert_id": "a364271d7cea49144b0d12df",
+    "evidence_refs": [
+      "ecc702b170c7cfbc65b1167f",
+      "e7dc984d68e369c5c58af141",
+      "c23d8c1d603f60a7f0ced006",
+      "07eb5969f0822833dcf4da7c"
+    ],
+    "status": "UNDER_REVIEW",
+    "notes": [
+      {
+        "text": "Automated synthetic deployment verification. Reviewed cited velocity evidence and model contributions. Human assessment remains pending; no customer decision was made.",
+        "author": "93b6c7f68b8b86e7615ba790",
+        "created_at": "2026-11-07T11:57:02.733568+00:00"
+      }
+    ],
+    "history": [
+      {
+        "from": "NEW",
+        "to": "UNDER_REVIEW",
+        "reviewer": "93b6c7f68b8b86e7615ba790",
+        "created_at": "2026-11-07T11:56:59.857473+00:00"
+      }
+    ],
+    "assigned_to": "93b6c7f68b8b86e7615ba790",
+    "synthetic": true
+  },
+  "privacy": {
+    "configuration": {
+      "enabled": true,
+      "clipping_norm": 1,
+      "noise_multiplier": 1.2,
+      "delta": 1e-05,
+      "max_epsilon": 30
+    },
+    "latest_epsilon": 7.249938307004483,
+    "completed_releases": 1,
+    "accounting_source": "bank-local release journal",
+    "unprotected_history": false,
+    "secure_aggregation": "PLAINTEXT SIMULATION \u2014 coordinator can inspect individual updates",
+    "data_locality": "Raw datasets remain in bank node stores",
+    "mechanism": "full-batch per-record clipping + Gaussian; Google dp-accounting RDP; q=1",
+    "guarantee": "Research assumptions only; non-cryptographic RNG; fixed public class weights; unprotected releases invalidate full-history claims; see privacy.md"
+  },
+  "evidence_source_count": 4
+}

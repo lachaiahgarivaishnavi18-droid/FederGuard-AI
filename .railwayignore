@@ -1,0 +1,14 @@
+.git/
+.env
+.env.*
+.venv/
+.pnpm-store/
+.pytest_cache/
+runtime/
+frontend/
+docs/
+data/
+**/__pycache__/
+**/*.pyc
+**/*.db
+backend/tests/
